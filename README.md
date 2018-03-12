@@ -2,7 +2,7 @@
 
 [![npm package][npm-badge]][npm]
 
-Wrap react components with a HOC measuring page performance metrics. This packages assumes you're tracking via segment and simple providing a react-y implementation of [website-performance](https://github.com/hanford/website-performance)
+Wrap react components with a HOC measuring page performance metrics. This packages assumes you're tracking via segment and is simply providing a react-y HOC implementation of the [website-performance](https://github.com/hanford/website-performance) npm module.
 
 [npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
 [npm]: https://www.npmjs.org/package/npm-package
