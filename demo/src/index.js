@@ -13,6 +13,6 @@ class Demo extends Component {
   }
 }
 
-const HasTrack = withTrack(Demo)
+const HasTrack = withTrack()(Demo)
 
 render(<HasTrack />, document.querySelector('#demo'))

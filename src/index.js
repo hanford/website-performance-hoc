@@ -34,7 +34,7 @@ const withWebsitePerformance = provider => (WrappedComponent, opts = { eventName
       if (provider && provider.track) {
         rc(() => provider.track(name, payload))
       } else {
-        console.warn('website-performance-hoc: provider and window.anayltics.track are undefined, nothing tracked')
+        console.warn('website-performance-hoc: Provider is undefined, nothing tracked')
       }
     }
 
