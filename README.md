@@ -9,15 +9,35 @@ Wrap react components with a HOC measuring page performance metrics. This packag
 
 ## Usage
 
+If you've loaded segment globally, and are guranteed to have window.analytics defined before your code runs .. integrating is as easy as:
 ```js
-import withWebsitePerformance from 'website-performance-hoc'
+import withPerformance from 'website-performance-hoc'
 
 class MyPage extends React.PureComponent {
   ...
 }
 
-export default withWebsitePerformance(MyPage, { eventName: 'Performance.Track' })
+export default withPerformance(window.analytics)(MyPage, { eventName: 'Performance.Track' })
 ```
+
+In other cases, you may have asynchronously loaded a tracking library. Integrating would then look something like this:
+
+```js
+import withPerformance from 'website-performance-hoc'
+import Segment from 'load-segment'
+const analytics = Segment({ key: .. })
+
+class MyPage extends React.PureComponent {
+  ...
+}
+
+export default withPerformance(analytics)(MyPage)
+```
+
+`website-performance-hoc` can take any analytics provider as long as it has a `.track()` method, so it should work with Google analytics and Segment. If you're using an analytics provider that doesn't have a `.track()` method, please [open an issue](https://github.com/hanford/website-performance-hoc/issues/new).
+
+We're using `componentDidMount` in the `HOC` which can be invoked before the `DOM` has loaded. In that case, we set `window.onload` to retry tracking once the window has loaded. We're also deferring the track call to when the browser has free cycles using [request-callback](https://github.com/hanford/request-callback).
+
 
 Questions? Feedback? [Please let me know](https://github.com/hanford/website-performance-hoc/issues/new)
 

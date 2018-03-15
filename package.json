@@ -22,6 +22,7 @@
   "dependencies": {
     "global": "~4.3.2",
     "hoist-non-react-statics": "~2.5.0",
+    "request-callback": "~1.0.2",
     "website-performance": "~1.0.2"
   },
   "peerDependencies": {
