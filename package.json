@@ -1,6 +1,6 @@
 {
   "name": "website-performance-hoc",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "website-performance-hoc React component",
   "main": "lib/index.js",
   "module": "es/index.js",
