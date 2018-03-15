@@ -16,7 +16,7 @@ class MyPage extends React.PureComponent {
   ...
 }
 
-export default withWebsitePerformance(MyPage, { eventName: 'Site.Load' })
+export default withWebsitePerformance(MyPage, { eventName: 'Performance.Track' })
 ```
 
 Questions? Feedback? [Please let me know](https://github.com/hanford/website-performance-hoc/issues/new)
