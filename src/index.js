@@ -8,22 +8,24 @@ import rc from 'request-callback'
 const withWebsitePerformance = provider => (WrappedComponent, opts = { eventName: 'Site.Load' }) => {
   class WithWebPerformanceComponent extends PureComponent {
     componentDidMount () {
-      const payload = websitePerformance()
-      let hasLoaded = true
+      rc(() => {
+        const payload = websitePerformance()
+        let hasLoaded = true
 
-      // if anything in window.performance.timing is less than or equal to 0, window.onload hasn't fired yet,
-      // so once it does fire, we need invoke our track function, but not before then
-      Object.keys(payload).forEach(e => {
-        if (0 >= payload[e]) {
-          hasLoaded = false
+        // if anything in window.performance.timing is less than or equal to 0, window.onload hasn't fired yet,
+        // so once it does fire, we need invoke our track function, but not before then
+        Object.keys(payload).forEach(e => {
+          if (0 >= payload[e]) {
+            hasLoaded = false
+          }
+        })
+
+        if (hasLoaded) {
+          this.track()
+        } else {
+          window.onload = this.track
         }
       })
-
-      if (hasLoaded) {
-        this.track()
-      } else {
-        window.onload = this.track
-      }
     }
 
     track = () => {
