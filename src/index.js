@@ -14,7 +14,7 @@ const withWebsitePerformance = provider => (WrappedComponent, opts = { eventName
       // if anything in window.performance.timing is less than or equal to 0, window.onload hasn't fired yet,
       // so once it does fire, we need invoke our track function, but not before then
       Object.keys(payload).forEach(e => {
-        if (payload[e] >= 0) {
+        if (0 >= payload[e]) {
           hasLoaded = false
         }
       })
@@ -28,7 +28,7 @@ const withWebsitePerformance = provider => (WrappedComponent, opts = { eventName
 
     track = () => {
       const name = opts.eventName
-      const payload = { ...websitePerformance() }
+      const payload = websitePerformance()
 
       // we're using request.callback to only track these events when the browser has free cycles
       if (provider && provider.track) {

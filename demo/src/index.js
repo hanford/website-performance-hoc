@@ -3,7 +3,7 @@ import {render} from 'react-dom'
 
 import withTrack from '../../src'
 
-class Demo extends Component {
+export default class Demo extends Component {
   render () {
     return (
       <div>
