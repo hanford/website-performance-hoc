@@ -33,11 +33,40 @@
     "react": "~16.2.0",
     "react-dom": "~16.2.0"
   },
-  "author": "",
-  "homepage": "",
   "license": "MIT",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hanford/website-performance.git"
+  },
+  "homepage": "https://github.com/hanford/website-performance",
+  "bugs": "https://github.com/hanford/website-performance/issues",
+  "authors": [
+    "Jack Hanford"
+  ],
+  "tags": [
+    "website",
+    "performance",
+    "react",
+    "hoc",
+    "composes",
+    "perf",
+    "tti",
+    "time to interactive",
+    "dcl",
+    "DOMContentLoaded",
+    "load complete"
+  ],
   "keywords": [
-    "react-component"
+    "website",
+    "performance",
+    "react",
+    "hoc",
+    "composes",
+    "perf",
+    "tti",
+    "time to interactive",
+    "dcl",
+    "DOMContentLoaded",
+    "load complete"
   ]
 }
